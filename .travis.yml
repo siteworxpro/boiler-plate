@@ -2,3 +2,14 @@ language: php
 php:
   - '7.2'
   - '7.3'
+
+before_script: 
+  - composer install
+  - cp ./var/config/tests.php ./var/config/config.php
+  - mkdir ./var/cache
+  - mkdir ./var/logs
+  - chmod -R 777 ./var/cache
+  - chmod -R 777 ./var/logs
+  - ./vendor/bin/phinx migrate
+  - ./App/Cli/bin/cli --generate-key --write
+script: vendor/bin/codecept run --steps --coverage 
