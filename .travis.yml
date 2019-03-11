@@ -11,5 +11,5 @@ before_script:
   - chmod -R 777 ./var/cache
   - chmod -R 777 ./var/logs
   - ./vendor/bin/phinx migrate
-  - ./App/Cli/bin/cli --generate-key --write
+  - php ./App/Cli/bin/cli --generate-key --write
 script: vendor/bin/codecept run --steps --coverage 
