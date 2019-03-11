@@ -14,6 +14,6 @@ before_script:
   - php ./App/Cli/bin/cli --generate-key --write
 script: 
   - ./vendor/bin/phpcs ./App --standard=PSR12 --colors -v
-  - /vendor/bin/phpcs ./App --standard=./rules.xml --colors -v
+  - ./vendor/bin/phpcs ./App --standard=./rules.xml --colors -v
   - ./vendor/bin/phpstan analyse --level 0 ./App/
-  - vendor/bin/codecept run --steps --coverage 
+  - ./vendor/bin/codecept run --steps --coverage 
