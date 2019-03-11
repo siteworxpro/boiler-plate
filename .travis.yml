@@ -15,8 +15,17 @@ before_script:
   - chmod -R 777 ./var/logs
   - ./vendor/bin/phinx migrate
   - php ./App/Cli/bin/cli --generate-key --write
-script: 
-  - ./vendor/bin/phpcs ./App --standard=PSR12 --colors -v
-  - ./vendor/bin/phpcs ./App --standard=./rules.xml --colors -v
-  - ./vendor/bin/phpstan analyse --level 0 ./App/
-  - ./vendor/bin/codecept run --steps --coverage --coverage-xml --coverage-html
+  
+jobs:  
+  include:
+    - stage: "Lint"                # naming the Tests stage
+      name: "PSR12"            # names the first Tests stage job
+      script: ./vendor/bin/phpcs ./App --standard=PSR12 --colors -v
+    - script: ./vendor/bin/phpcs ./App --standard=./rules.xml --colors -v
+      name: "Custom Rules"     # names the second Tests stage job
+    - stage: "PHP Stan"
+      name: "PHP Stan"
+      script: ./vendor/bin/phpstan analyse --level 0 ./App/
+    - stage: "Tests"
+      name: "Run Tests"
+      script: ./vendor/bin/codecept run --steps
