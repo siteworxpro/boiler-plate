@@ -12,4 +12,8 @@ before_script:
   - chmod -R 777 ./var/logs
   - ./vendor/bin/phinx migrate
   - php ./App/Cli/bin/cli --generate-key --write
-script: vendor/bin/codecept run --steps --coverage 
+script: 
+  - ./vendor/bin/phpcs ./App --standard=PSR12 --colors -v
+  - /vendor/bin/phpcs ./App --standard=./rules.xml --colors -v
+  - ./vendor/bin/phpstan analyse --level 0 ./App/
+  - vendor/bin/codecept run --steps --coverage 
