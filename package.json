@@ -1,0 +1,35 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.4.2",
+    "webpack": "^4.20.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.10",
+    "eslint": "^5.15.1",
+    "eslint-loader": "^2.1.2",
+    "file-loader": "^2.0.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack-cli": "^3.1.1",
+    "webpackbar": "^3.1.5"
+  },
+  "scripts": {
+    "production": "./node_modules/webpack/bin/webpack.js --config webpack.config.js --mode production --colors --env.production",
+    "development": "./node_modules/webpack/bin/webpack.js --config webpack.config.js --mode development --colors --env.development",
+    "watch": "./node_modules/webpack/bin/webpack.js --config webpack.config.js --watch --mode development --colors"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

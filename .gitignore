@@ -1,0 +1,31 @@
+#lock files
+composer.lock
+package-lock.json
+
+#config and temp files
+var/config/config.php
+var/logs/
+public/js/app.min.js
+public/js/app.min.js.map
+public/js/styles.min.js
+public/js/styles.min.js.map
+var/cache/
+tests/_data/database.sqlite3
+
+#vagrant
+.vagrant
+ubuntu-xenial-16.04-cloudimg-console.log
+
+#IDE
+.idea
+
+#libs
+vendor
+node_modules/
+
+#deployment files
+cli
+.epoch
+
+#Junk
+.DS_Store

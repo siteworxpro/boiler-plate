@@ -1,0 +1,39 @@
+#!/usr/bin/php
+<?php
+
+/**
+ * @copyright (c) 2015-2018 Siteworx Professionals LLC
+ *
+ * @author ron rise <ron@siteworxpro.com>
+ */
+
+/*
+|--------------------------------------------------------------------------
+| Get Ready....
+|--------------------------------------------------------------------------
+*/
+require __DIR__ . '/../../../vendor/autoload.php';
+
+/*
+|--------------------------------------------------------------------------
+| Set.....
+|--------------------------------------------------------------------------
+*/
+
+$container = new \App\Library\Container();
+$app = new \App\Library\App($container);
+
+date_default_timezone_set($container->config->get('settings.timezone', 'America/New_York'));
+
+/*
+|--------------------------------------------------------------------------
+| Go!
+|--------------------------------------------------------------------------
+*/
+
+$container->config->set('cli', true);
+
+$task = $argv[1] ?? '';
+
+$cli = new \App\Cli\CliTask($app);
+$cli->handle($task, $argv);

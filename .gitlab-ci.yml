@@ -1,0 +1,36 @@
+stages:
+  - code_sniff
+  - test
+
+Run Code Lint:
+  stage: code_sniff
+  script:
+    - composer install
+    - ./vendor/bin/phpcs ./App --standard=PSR12 --colors -v
+    - ./vendor/bin/phpcs ./App --standard=./rules.xml --colors -v
+    - ./vendor/bin/phpstan analyse --level 0 ./App/
+    - npm install
+    - ./node_modules/.bin/eslint src/js/
+  except:
+    - tags
+
+test :
+  stage: test
+  only:
+    - branches
+  script:
+    - composer install
+    - cp ./var/config/tests.php ./var/config/config.php
+    - mkdir ./var/cache
+    - mkdir ./var/logs
+    - chmod -R 777 ./var/cache
+    - chmod -R 777 ./var/logs
+    - ./vendor/bin/phinx migrate
+    - ./App/Cli/bin/cli --generate-key --write
+    - vendor/bin/codecept run --steps --coverage
+  artifacts:
+    name: "$CI_BUILD_NAME"
+    expire_in: 1d
+    paths:
+      - var/logs/*.log
+    when: always

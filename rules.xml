@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<ruleset name="retail-api-v2">
+    <!-- relative path from PHPCS source location -->
+    <config name="installed_paths" value="vendor/slevomat/coding-standard"/>
+    <config name="installed_paths" value="vendor/squizlabs/php_codesniffer/src"/>
+
+    <!-- specific sniffs to include -->
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/TypeHints/DeclareStrictTypesSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/TypeHints/ReturnTypeHintSpacingSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Variables/UselessVariableSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Functions/UselessParameterDefaultValueSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Namespaces/UselessAliasSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Namespaces/UseFromSameNamespaceSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Namespaces/UseDoesNotStartWithBackslashSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Operators/RequireCombinedAssignmentOperatorSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/PHP/TypeCastSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/PHP/UselessParenthesesSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/PHP/UselessSemicolonSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Arrays/DisallowImplicitArrayCreationSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/ControlStructures/AssignmentInConditionSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/ControlStructures/ControlStructureSpacingSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/ControlStructures/DisallowContinueWithoutIntegerOperandInSwitchSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/ControlStructures/DisallowEqualOperatorsSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/ControlStructures/DisallowShortTernaryOperatorSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/ControlStructures/DisallowYodaComparisonSniff.php" />
+    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/ControlStructures/LanguageConstructWithParenthesesSniff.php" />
+
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/Commenting/FixmeSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/Formatting/SpaceAfterCastSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/Metrics/NestingLevelSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/PHP/BacktickOperatorSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/PHP/CharacterBeforePHPOpeningTagSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/PHP/DeprecatedFunctionsSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/PHP/ForbiddenFunctionsSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/PHP/NoSilencedErrorsSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/PHP/SyntaxSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/WhiteSpace/DisallowTabIndentSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/WhiteSpace/IncrementDecrementSpacingSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Generic/Sniffs/WhiteSpace/ScopeIndentSniff.php" />
+
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Squiz/Sniffs/WhiteSpace/SuperfluousWhitespaceSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Squiz/Sniffs/WhiteSpace/MemberVarSpacingSniff.php" />
+    <rule ref="vendor/squizlabs/php_codesniffer/src/Standards/Squiz/Sniffs/WhiteSpace/PropertyLabelSpacingSniff.php" />
+</ruleset>
