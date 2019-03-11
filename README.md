@@ -1,4 +1,5 @@
 # Siteworx Professionals Boiler Plate
+[![Build Status](https://travis-ci.org/siteworxpro/boiler-plate.svg?branch=master)](https://travis-ci.org/siteworxpro/boiler-plate)
 
 ## What is this?
 
