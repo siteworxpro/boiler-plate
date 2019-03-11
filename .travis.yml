@@ -21,7 +21,7 @@ before_script:
   - ./vendor/bin/phinx migrate
   - php ./App/Cli/bin/cli --generate-key --write
 
-script: ./vendor/bin/codecept run --steps
+script: ./vendor/bin/codecept run --steps --coverage-xml
 
 jobs:
   include:
