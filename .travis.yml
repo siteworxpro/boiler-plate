@@ -3,6 +3,9 @@ php:
   - '7.2'
   - '7.3'
 
+global:
+    - DEFAULT_COMPOSER_FLAGS="--no-interaction --no-ansi --no-progress --no-suggest"
+    
 before_script: 
   - composer install
   - cp ./var/config/tests.php ./var/config/config.php
