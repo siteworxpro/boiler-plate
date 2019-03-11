@@ -14,10 +14,12 @@ I like laravel/lumin and have used it in several projects.  Cake and the others 
 I have always found it more than I have always needed.  I don't really need everything plus the kitchen sink. 
 
 *No CSS?*
-No, most client are going to bring their own styles or templates.  Check these procjects out as a great place to start
+No, most client are going to bring their own styles or templates.  Check these projects out as a great place to start
 
 [Vuetifyjs](https://vuetifyjs.com/en/)
+
 [Vue Bootstrap](https://bootstrap-vue.js.org/)
+
 [Vue Material](https://vuematerial.io/)
 
 ### Vagrant Development
