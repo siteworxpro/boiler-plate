@@ -3,6 +3,11 @@ php:
   - '7.2'
   - '7.3'
 
+stages:
+  - Lint
+  - "PHP Stan"
+  - "Tests"
+
 global:
     - DEFAULT_COMPOSER_FLAGS="--no-interaction --no-ansi --no-progress --no-suggest"
     
