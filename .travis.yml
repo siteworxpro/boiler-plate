@@ -6,7 +6,7 @@ php:
 stages:
   - Lint
   - "PHP Stan"
-  - "Tests"
+  - test
 
 global:
     - DEFAULT_COMPOSER_FLAGS="--no-interaction --no-ansi --no-progress --no-suggest"
@@ -20,7 +20,9 @@ before_script:
   - chmod -R 777 ./var/logs
   - ./vendor/bin/phinx migrate
   - php ./App/Cli/bin/cli --generate-key --write
-  
+
+script: ./vendor/bin/codecept run --steps
+
 jobs:  
   include:
     - stage: "Lint"                # naming the Tests stage
@@ -31,6 +33,3 @@ jobs:
     - stage: "PHP Stan"
       name: "PHP Stan"
       script: ./vendor/bin/phpstan analyse --level 0 ./App/
-    - stage: "Tests"
-      name: "Run Tests"
-      script: ./vendor/bin/codecept run --steps
