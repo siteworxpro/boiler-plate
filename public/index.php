@@ -1,11 +1,5 @@
 <?php
 
-/**
- * @Copyright (C) 2015-2019 SiteworxPro LLC.
- *
- * @author Ron Rise <ron@siteworxpro.com>
- */
-
 /*
 |--------------------------------------------------------------------------
 | Get Ready....
