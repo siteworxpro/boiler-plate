@@ -29,7 +29,11 @@ class Client extends Model implements ClientEntityInterface
     {
         return $this->hasManyThrough(
             Scope::class,
-            ClientScope::class
+            ClientScope::class,
+            'client_id',
+            'id',
+            'id',
+            'scope_id'
         );
     }
 

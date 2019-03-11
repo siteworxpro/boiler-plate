@@ -10,8 +10,8 @@ stages:
 
 global:
     - DEFAULT_COMPOSER_FLAGS="--no-interaction --no-ansi --no-progress --no-suggest"
-    
-before_script: 
+
+before_script:
   - composer install
   - cp ./var/config/tests.php ./var/config/config.php
   - mkdir ./var/cache
@@ -23,13 +23,13 @@ before_script:
 
 script: ./vendor/bin/codecept run --steps
 
-jobs:  
+jobs:
   include:
-    - stage: "Lint"                # naming the Tests stage
-      name: "PSR12"            # names the first Tests stage job
+    - stage: "Lint"
+      name: "PSR12"
       script: ./vendor/bin/phpcs ./App --standard=PSR12 --colors -v
     - script: ./vendor/bin/phpcs ./App --standard=./rules.xml --colors -v
-      name: "Custom Rules"     # names the second Tests stage job
+      name: "Custom Rules"
     - stage: "PHP Stan"
       name: "PHP Stan"
       script: ./vendor/bin/phpstan analyse --level 0 ./App/
