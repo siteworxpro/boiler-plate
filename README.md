@@ -7,11 +7,12 @@ This is a starting point that I use for all of my projects.  It's got the basics
 
 ## What it's not
 
-This is not a new frame work or ment to be a one size fits all solution.  Most of this application is specificly built for what I need.
+This is not a new frame work or ment to be a one size fits all solution.  Most of this application is specificly built for what I need to get a new project up off the ground. 
 
 *Why not use Laravel, Cake or Symphony?*
-I like laravel/lumin and have used it in several projects.  Cake and the others are also fine but I still like the basics of slim.
-I have always found it more than I have always needed.  I don't really need everything plus the kitchen sink. 
+I like laravel/lumin and have used it in several projects.  Cake and the others are also fine but I still like the basics of slim. What it does what it needs to do and nothing else. 
+
+I have always found it more than I have always needed.  I don't really need everything plus the kitchen sink in my projects to start. 
 
 *No CSS?*
 No, most client are going to bring their own styles or templates.  Check these projects out as a great place to start
