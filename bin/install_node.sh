@@ -1,10 +1,8 @@
-#!/usr/bin/env bash
-
 VERSION='11.11.0'
 
-wget https://nodejs.org/dist/v${VERSION}/node-v11.11.0-linux-x64.tar.xz
+wget https://nodejs.org/dist/v${VERSION}/node-v${VERSION}-linux-x64.tar.xz
 curl -O https://nodejs.org/dist/v${VERSION}/SHASUMS256.txt
-grep node-v${VERSION}.tar.gz SHASUMS256.txt | sha256sum -c -
+grep node-v${VERSION}-linux-x64.tar.xz SHASUMS256.txt | sha256sum -c -
 
 tar -xvf node-v${VERSION}-linux-x64.tar.xz
 
