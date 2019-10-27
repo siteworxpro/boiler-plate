@@ -4,8 +4,9 @@
     <config name="installed_paths" value="vendor/slevomat/coding-standard"/>
     <config name="installed_paths" value="vendor/squizlabs/php_codesniffer/src"/>
 
+    <rule ref="PSR12" />
+
     <!-- specific sniffs to include -->
-    <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/TypeHints/DeclareStrictTypesSniff.php" />
     <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/TypeHints/ReturnTypeHintSpacingSniff.php" />
     <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Variables/UselessVariableSniff.php" />
     <rule ref="vendor/slevomat/coding-standard/SlevomatCodingStandard/Sniffs/Functions/UselessParameterDefaultValueSniff.php" />
