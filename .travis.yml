@@ -25,8 +25,7 @@ script: ./vendor/bin/codecept run --steps
 jobs:
   include:
     - stage: "Lint"
-      name: "PSR12"
-      script: ./vendor/bin/phpcs ./App --standard=PSR12 --colors -v
+      name: "Custom Rules"
     - script: ./vendor/bin/phpcs ./App --standard=./rules.xml --colors -v
       name: "Custom Rules"
     - stage: "PHP Stan"
