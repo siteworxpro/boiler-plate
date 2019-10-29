@@ -26,8 +26,7 @@ jobs:
   include:
     - stage: "Lint"
       name: "Custom Rules"
-    - script: ./vendor/bin/phpcs ./App --standard=./rules.xml --colors -v
-      name: "Custom Rules"
+      script: ./vendor/bin/phpcs ./App --standard=./rules.xml --colors -v
     - stage: "PHP Stan"
       name: "PHP Stan"
       script: ./vendor/bin/phpstan analyse --level 0 ./App/
