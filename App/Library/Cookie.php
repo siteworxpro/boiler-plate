@@ -96,5 +96,4 @@ final class Cookie
 
         setcookie($key, $value, time() + $expires, '/', false, $secure, $httpOnly);
     }
-
 }
