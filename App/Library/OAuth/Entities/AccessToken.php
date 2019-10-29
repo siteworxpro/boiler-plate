@@ -53,9 +53,9 @@ class AccessToken extends Model implements AccessTokenEntityInterface
 
 
     /**
-     * @param DateTime $dateTime
+     * @param \DateTimeImmutable $dateTime
      */
-    public function setExpiryDateTime(\DateTime $dateTime): void
+    public function setExpiryDateTime(\DateTimeImmutable $dateTime): void
     {
         $this->expires = $dateTime->format('Y-m-d H:i:s');
     }
