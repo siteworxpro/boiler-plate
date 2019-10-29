@@ -3,6 +3,9 @@
 /**
  * Config
  */
+
+use App\Library\Sessions\Drivers\Mysql;
+
 return [
 
     /*
@@ -26,6 +29,16 @@ return [
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
         ]
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Session
+    |--------------------------------------------------------------------------
+    */
+    'session' => [
+        'driver' => Mysql::class,
+        'config' => []
     ],
 
     'dev_mode' => true,

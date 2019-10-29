@@ -27,6 +27,7 @@ use Whoops\{Handler\JsonResponseHandler, Handler\PrettyPageHandler, Run};
  * @property Request request
  * @property ResourceServer resourceServer
  * @property AuthorizationServer oAuthServer
+ * @property Session session
  *
  * @package App\Library
  */
@@ -88,6 +89,18 @@ final class Container extends SlimContainer
             }
 
             return $logger;
+        };
+
+        /*
+        |--------------------------------------------------------------------------
+        | Session
+        |--------------------------------------------------------------------------
+        */
+        $this['session'] = function () {
+            $driverClass = $this->config->get('session.driver');
+            $driver = new $driverClass($this->config->get('session.driver.config', []));
+
+            return new Session($driver);
         };
 
         /*
