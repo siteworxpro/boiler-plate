@@ -5,6 +5,7 @@
  */
 
 use App\Library\Sessions\Drivers\Mysql;
+use Psr\Log\LogLevel;
 
 return [
 
@@ -31,16 +32,7 @@ return [
         ]
     ],
 
-    /*
-    |--------------------------------------------------------------------------
-    | Session
-    |--------------------------------------------------------------------------
-    */
-    'session' => [
-        'driver' => Mysql::class,
-        'config' => []
-    ],
-
+    'app_name' => 'boilerplate',
     'dev_mode' => true,
     'app_env' => 'vagrant',
     'force_ssl' => false,
@@ -55,7 +47,7 @@ return [
     */
     'logs' => [
         'log_folder' => '/var/logs',
-        'log_level' => \Psr\Log\LogLevel::DEBUG
+        'log_level' => LogLevel::DEBUG
     ],
 
     /*
@@ -67,6 +59,26 @@ return [
         'host' => env('REDIS_HOST', 'localhost:6379'),
         'max_requests' => env('REDIS_MAX_REQUESTS', 20),
         'expire' => env('REDIS_EXPIRE', 10),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Session
+    |--------------------------------------------------------------------------
+    */
+    'session' => [
+        'driver' => Mysql::class,
+        'config' => []
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cookies
+    |--------------------------------------------------------------------------
+    */
+    'cookies' => [
+        'encrypt' => false,
+        'force_insecure' => true
     ],
 
     /*

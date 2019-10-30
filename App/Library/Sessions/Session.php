@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Library;
+namespace App\Library\Sessions;
 
+use App\Library\App;
+use App\Library\Cookie;
 use App\Library\Sessions\Drivers\SessionDriverInterface;
 use App\Library\Utilities\Helpers;
 
@@ -42,22 +44,6 @@ final class Session
         $this->generateSessionKey();
         $this->driver->setIp(App::di()->request->getServerParam('REMOTE_ADDR'));
         $this->driver->setUserAgent(App::di()->request->getServerParam('HTTP_USER_AGENT') ?? 'No user agent');
-    }
-
-    /**
-     * Save session to database
-     */
-    private function saveSession(): void
-    {
-        $this->driver->save();
-    }
-
-    /**
-     * prevent session automatic purge
-     */
-    public function rememberSession(): void
-    {
-        $this->driver->setSessionExpiration(false);
     }
 
     /**
@@ -103,6 +89,7 @@ final class Session
     public function set($key, $value): void
     {
         $this->driver->set($key, $value);
+        $this->driver->save();
     }
 
     /**

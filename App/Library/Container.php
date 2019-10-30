@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Library;
 
 use App\Library\OAuth\{AccessTokenRepository, ClientRepository, Entities\AccessToken, Entities\Client, ScopeRepository};
+use App\Library\Sessions\Session;
 use Carbon\Carbon;
 use League\OAuth2\Server\{AuthorizationServer, Grant\ClientCredentialsGrant, ResourceServer};
 use Monolog\Handler\{RotatingFileHandler, StreamHandler};

@@ -61,6 +61,7 @@ class GenerateKey extends Command
         $pubKey = $pubKey['key'];
 
         $encryptionKey = base64_encode(random_bytes(32));
+        $encryptionKeyHex = bin2hex(base64_decode($encryptionKey));
 
         if ($this->cli->arguments->get('writeFile')) {
             $file = fopen(App::di()->config->get('run_dir') . '/authorization.key', 'wb');
@@ -82,6 +83,7 @@ class GenerateKey extends Command
             $this->cli->yellow($privKey);
             $this->cli->green($pubKey);
             $this->cli->blue($encryptionKey);
+            $this->cli->blue($encryptionKeyHex);
         }
 
         return 0;

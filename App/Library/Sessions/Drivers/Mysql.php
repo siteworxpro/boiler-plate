@@ -18,9 +18,25 @@ final class Mysql extends SessionDriver
      */
     private $sessionModel;
 
+    /**
+     * @var array
+     */
+    private $sessionData = [];
+
     private function fetchSessionModel(): void
     {
         $this->sessionModel = Session::find($this->getSessionIdentifier());
+
+        if ($this->sessionModel === null) {
+            $this->sessionModel = new Session();
+            $this->sessionModel->key = $this->sessionKey;
+            $this->sessionModel->ip = $this->ip ?? 'No Ip';
+            $this->sessionModel->user_agent = $this->userAgent ?? 'Unknown';
+            $this->sessionModel->session = [];
+            $this->sessionModel->save();
+        }
+
+        $this->sessionData = $this->sessionModel->session;
     }
 
     /**
@@ -30,7 +46,7 @@ final class Mysql extends SessionDriver
     public function set(string $key, $value): void
     {
         $this->ensureModel();
-        $this->sessionModel->session[$key] = $value;
+        $this->sessionData[$key] = $value;
     }
 
     /**
@@ -42,7 +58,7 @@ final class Mysql extends SessionDriver
     {
         $this->ensureModel();
 
-        return $this->sessionModel->session[$key] ?? $default;
+        return $this->sessionData[$key] ?? $default;
     }
 
     /**
@@ -51,6 +67,7 @@ final class Mysql extends SessionDriver
     public function save(): void
     {
         $this->ensureModel();
+        $this->sessionModel->session = $this->sessionData;
         $this->sessionModel->save();
     }
 
@@ -59,7 +76,7 @@ final class Mysql extends SessionDriver
      */
     public function toArray(): array
     {
-        return $this->sessionModel->session;
+        return $this->sessionData;
     }
 
     /**
@@ -67,7 +84,7 @@ final class Mysql extends SessionDriver
      */
     public function toJson(): string
     {
-        return json_encode($this->sessionModel->session, JSON_THROW_ON_ERROR, 512);
+        return json_encode($this->sessionData, JSON_THROW_ON_ERROR, 512);
     }
 
     /**

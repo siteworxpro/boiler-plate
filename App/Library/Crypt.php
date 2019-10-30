@@ -24,7 +24,7 @@ final class Crypt
      */
     public function __construct($key)
     {
-        $this->key = sodium_hex2bin($key);
+        $this->key = base64_decode($key);
     }
 
     /**

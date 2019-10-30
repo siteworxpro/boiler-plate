@@ -25,12 +25,12 @@ final class Session extends Model
 
     protected $primaryKey = 'key';
 
-    private function getSessionAttribute($value): array
+    public function getSessionAttribute($value): array
     {
         return json_decode($value, true, 512, JSON_THROW_ON_ERROR);
     }
 
-    private function setSessionAttribute($value): void
+    public function setSessionAttribute($value): void
     {
         $this->attributes['session'] = json_encode($value, JSON_THROW_ON_ERROR, 512);
     }

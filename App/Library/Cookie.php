@@ -35,8 +35,8 @@ final class Cookie
     {
         $container = App::di();
 
-        $this->crypt = new Crypt($container->config['app_key']);
-        $this->encrypt = $container->config->get('encrypt_cookies', false);
+        $this->crypt = new Crypt($container->config['encryption_key']);
+        $this->encrypt = $container->config->get('cookies.encrypt', false);
         $this->forceInsecure = $container->config->get('cookies.force_insecure', false);
     }
 

@@ -5,10 +5,16 @@
 | Get Ready....
 |--------------------------------------------------------------------------
 */
+
+use App\Library\App;
+use App\Library\Container;
+use Interop\Container\Exception\ContainerException;
+use Whoops\Handler\PrettyPageHandler;
+
 require '../vendor/autoload.php';
 
-$container = new \App\Library\Container;
-$app = new \App\Library\App($container);
+$container = new Container();
+$app = new App($container);
 
 /*
 |--------------------------------------------------------------------------
@@ -36,29 +42,29 @@ date_default_timezone_set($container->config->get('settings.timezone', 'America/
 try {
     $app->run();
 } catch (\Exception $exception) {
-
-    $container->log->emergency($exception->getMessage() . ' in file ' . $exception->getFile() . ' on line ' . $exception->getLine());
+    $container->log->emergency(
+        $exception->getMessage() . ' in file ' . $exception->getFile() . ' on line ' . $exception->getLine()
+    );
 
     if ($container->config->get('dev_mode')) {
-        $handler = new \Whoops\Handler\PrettyPageHandler();
+        $handler = new PrettyPageHandler();
         $whoops = new Whoops\Run();
-        $whoops->pushHandler($handler);
+        $whoops->appendHandler($handler);
         $whoops->handleException($exception);
-        exit();
+
+        exit;
     }
 
     echo 'Server Error.';
 
-} catch (\Interop\Container\Exception\ContainerException $e) {
-
+} catch (ContainerException $e) {
     if ($container->config->get('dev_mode')) {
-        $handler = new \Whoops\Handler\PrettyPageHandler();
+        $handler = new PrettyPageHandler();
         $whoops = new Whoops\Run();
-        $whoops->pushHandler($handler);
+        $whoops->appendHandler($handler);
         $whoops->handleException($exception);
-        exit();
+        exit;
     }
 
     echo 'Server Error.';
 }
-
