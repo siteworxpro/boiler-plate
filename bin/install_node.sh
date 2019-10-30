@@ -1,4 +1,5 @@
-VERSION='11.11.0'
+#!/usr/bin/env bash
+VERSION='12.13.0'
 
 wget https://nodejs.org/dist/v${VERSION}/node-v${VERSION}-linux-x64.tar.xz
 curl -O https://nodejs.org/dist/v${VERSION}/SHASUMS256.txt
