@@ -14,25 +14,14 @@ class ClientRepository implements ClientRepositoryInterface
      * Get a client.
      *
      * @param string $clientIdentifier The client's identifier
-     * @param string $grantType The grant type used
-     * @param null|string $clientSecret The client's secret (if sent)
-     * @param bool $mustValidateSecret If true the client must attempt to validate the secret if the client
      *                                        is confidential
      *
      * @return ClientEntityInterface | null
      */
     public function getClientEntity(
-        $clientIdentifier,
-        $grantType,
-        $clientSecret = null,
-        $mustValidateSecret = true
+        $clientIdentifier
     ): ?ClientEntityInterface {
-        $builder = Client::where('client_id', $clientIdentifier)
-            ->where('grant_type', 'LIKE', '%' . $grantType . '%');
-
-        if ($mustValidateSecret) {
-            $builder->where('client_secret', $clientSecret);
-        }
+        $builder = Client::where('client_id', $clientIdentifier);
 
         /** @var Client $client */
         $client = $builder->get()->first();
@@ -42,5 +31,25 @@ class ClientRepository implements ClientRepositoryInterface
         }
 
         return null;
+    }
+
+    /**
+     * Validate a client's secret.
+     *
+     * @param string $clientIdentifier The client's identifier
+     * @param null|string $clientSecret The client's secret (if sent)
+     * @param null|string $grantType The type of grant the client is using (if sent)
+     *
+     * @return bool
+     */
+    public function validateClient($clientIdentifier, $clientSecret, $grantType): bool
+    {
+        $client = Client::where('client_id', $clientIdentifier)
+            ->where('grant_type', 'LIKE', '%' . $grantType . '%')
+            ->where('client_secret', $clientSecret)
+            ->get()
+            ->first();
+
+        return $client instanceof Client;
     }
 }
